@@ -1,4 +1,4 @@
-package org.opnsoc.opac_bettercommands.utils;
+package org.opnsoc.opac_better_commands.utils;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -22,7 +22,7 @@ public class PartyMessenger {
 
         if (party == null) {
             sender.sendSystemMessage(
-                    Component.translatable("message.party.not_in_party").withStyle(ChatFormatting.RED)
+                    Component.literal("You are not in a party!").withStyle(ChatFormatting.RED)
             );
             return;
         }

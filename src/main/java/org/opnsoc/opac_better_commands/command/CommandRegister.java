@@ -1,4 +1,4 @@
-package org.opnsoc.opac_bettercommands.command;
+package org.opnsoc.opac_better_commands.command;
 
 import com.mojang.brigadier.CommandDispatcher;
 import net.minecraft.commands.CommandSourceStack;
