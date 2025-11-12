@@ -8,23 +8,23 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
-import xaero.pac.common.server.parties.command.CommandRequirementProvider;
+import org.opnsoc.opac_better_commands.opac_better_commands;
 import org.opnsoc.opac_better_commands.utils.PartyMessenger;
-import org.opnsoc.opac_better_commands.listener.PartyChatListener;
+import xaero.pac.common.server.parties.command.CommandRequirementProvider;
 
 import java.util.UUID;
 import java.util.function.Predicate;
 
 public class PartyChatCommand {
-    public void register(CommandDispatcher<CommandSourceStack> dispatcher, Commands.CommandSelection environment, CommandRequirementProvider commandRequirementProvider) {
+    public void register(CommandDispatcher<CommandSourceStack> dispatcher, CommandRequirementProvider commandRequirementProvider) {
         Predicate<CommandSourceStack> requirement = commandRequirementProvider.getMemberRequirement((party, mi) -> true);
 
         // Toggle
         Command<CommandSourceStack> toggleAction = ctx -> {
             ServerPlayer player = ctx.getSource().getPlayerOrException();
             UUID id = player.getUUID();
-            boolean newState = !PartyChatListener.PARTY_CHAT_ENABLED.getOrDefault(id, false);
-            PartyChatListener.PARTY_CHAT_ENABLED.put(id, newState);
+            boolean newState = !opac_better_commands.PARTY_CHAT_ENABLED.getOrDefault(id, false);
+            opac_better_commands.PARTY_CHAT_ENABLED.put(id, newState);
             Component stateText = Component.literal(
                     newState ? "enabled" : "disabled"
             ).withStyle(newState ? ChatFormatting.GREEN : ChatFormatting.RED);
@@ -35,7 +35,7 @@ public class PartyChatCommand {
         // Status
         Command<CommandSourceStack> statusAction = ctx -> {
             ServerPlayer player = ctx.getSource().getPlayerOrException();
-            boolean state = PartyChatListener.PARTY_CHAT_ENABLED.getOrDefault(player.getUUID(), false);
+            boolean state = opac_better_commands.PARTY_CHAT_ENABLED.getOrDefault(player.getUUID(), false);
             Component stateText = Component.literal(
                     state ? "enabled" : "disabled"
             ).withStyle(state ? ChatFormatting.GREEN : ChatFormatting.RED);

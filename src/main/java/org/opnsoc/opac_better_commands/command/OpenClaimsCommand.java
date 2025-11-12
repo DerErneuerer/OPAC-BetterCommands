@@ -6,9 +6,6 @@ import net.minecraft.commands.Commands;
 
 public class OpenClaimsCommand {
     public void register(CommandDispatcher<CommandSourceStack> dispatcher) {
-        dispatcher.register(
-                Commands.literal("claims")
-                        .redirect(dispatcher.getRoot().getChild("openpac-claims"))
-        );
+        dispatcher.register(Commands.literal("claims").redirect(dispatcher.getRoot().getChild("openpac-claims")));
     }
 }

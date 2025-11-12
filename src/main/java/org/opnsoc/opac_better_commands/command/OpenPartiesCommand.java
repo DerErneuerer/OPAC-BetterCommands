@@ -6,9 +6,6 @@ import net.minecraft.commands.Commands;
 
 public class OpenPartiesCommand {
     public void register(CommandDispatcher<CommandSourceStack> dispatcher) {
-        dispatcher.register(
-                Commands.literal("party")
-                        .redirect(dispatcher.getRoot().getChild("openpac-parties"))
-        );
+        dispatcher.register(Commands.literal("party").redirect(dispatcher.getRoot().getChild("openpac-parties")));
     }
 }
