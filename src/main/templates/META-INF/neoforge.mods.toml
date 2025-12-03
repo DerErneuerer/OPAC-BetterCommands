@@ -75,7 +75,7 @@ side = "BOTH"
 modId = "craterlib"
 type = "optional"
 versionRange = "*"
-ordering = "AFTER"
+ordering = "BEFORE"
 side = "BOTH"
 
 [[dependencies."${mod_id}"]]
